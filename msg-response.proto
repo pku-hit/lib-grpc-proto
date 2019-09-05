@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option java_package = "com.founder.pku-hit.libgrpc";
+package libGrpc;
+
 message Response {
     string code = 1;
     string info = 2;

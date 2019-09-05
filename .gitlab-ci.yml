@@ -1,4 +1,4 @@
-image: registry.devops.pku-hit.com/library/ciproto:0.0.1
+image: registry.devops.pku-hit.com/library/ciproto:0.0.2
 
 stages:
   - mvn-deploy

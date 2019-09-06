@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_package = "com.founder.core.libgrpc";
-package libGrpc;
+package libgrpc;
 
 message Response {
     string code = 1;

@@ -1,11 +1,15 @@
 package libgrpc
 
+import "fmt"
+
 var (
-	SUCCESS   = &Response{Code: "RC00000", Info: "Success"}
-	SYS_ERROR = &Response{Code: "RC90000", Info: "System error"}
+	SUCCESS        = &Response{Code: "RC00000", Info: "Success"}
+	CALL_SVC_ERROR = &Response{Code: "RC70000", Info: "Calling service %s error %s."}
+	DB_ERROR       = &Response{Code: "RC80000", Info: "Database invoke error: %s."}
+	SYS_ERROR      = &Response{Code: "RC90000", Info: "System error: %s."}
 )
 
-func (resp *Response) SetCode(srcResp *Response, message... string) {
+func (resp *Response) SetCode(srcResp *Response, message ...string) {
 	if resp == nil {
 		resp = &Response{}
 	}
@@ -13,7 +17,7 @@ func (resp *Response) SetCode(srcResp *Response, message... string) {
 	if len(message) == 0 {
 		resp.Info = srcResp.Info
 	} else {
-		resp.Info = message[0]
+		resp.Info = fmt.Sprintf(srcResp.Info, message)
 	}
 }
 

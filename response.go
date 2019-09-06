@@ -5,6 +5,18 @@ var (
 	SYS_ERROR = &Response{Code: "RC90000", Info: "System error"}
 )
 
+func (resp *Response) SetCode(srcResp *Response, message... string) {
+	if resp == nil {
+		resp = &Response{}
+	}
+	resp.Code = srcResp.Code
+	if len(message) == 0 {
+		resp.Info = srcResp.Info
+	} else {
+		resp.Info = message[0]
+	}
+}
+
 func (resp *Response) IsSuccess() (result bool) {
 	return resp.Is(SUCCESS)
 }

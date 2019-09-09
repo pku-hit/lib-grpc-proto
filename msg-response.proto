@@ -10,7 +10,40 @@ message Response {
     string info = 2;
 }
 
+message BoolResponse {
+    Response resp = 1;
+    bool result = 2;
+}
+
+message IntResponse {
+    Response resp = 1;
+    int32 result = 2;
+}
+
+message StringResponse {
+    Response resp = 1;
+    string result = 2;
+}
+
+message BytesResponse {
+    Response resp = 1;
+    bytes result = 2;
+}
+
+message PageInfo {
+    int32 current = 1;
+    int32 total = 2;
+    int32 pageSize = 3;
+}
+
+message PageResponse {
+    Response resp = 1;
+    bool isEnd = 2;
+    PageInfo pageInfo = 3;
+    repeated google.protobuf.Any result = 4;
+}
+
 message GenericResponse {
     Response resp = 1;
-    google.protobuf.Any result = 5;
+    google.protobuf.Any result = 2;
 }

@@ -13,6 +13,7 @@ It has these top-level messages:
 	IntResponse
 	StringResponse
 	BytesResponse
+	MapResponse
 	PageInfo
 	PageResponse
 	GenericResponse

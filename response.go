@@ -9,16 +9,15 @@ var (
 	SYS_ERROR      = &Response{Code: "RC90000", Info: "System error: %s."}
 )
 
-func (resp *Response) SetCode(srcResp *Response, message ...string) {
-	if resp == nil {
-		resp = &Response{}
-	}
+func GenRespCode(srcResp *Response, message ...string) (resp *Response) {
+	resp = &Response{}
 	resp.Code = srcResp.Code
 	if len(message) == 0 {
 		resp.Info = srcResp.Info
 	} else {
 		resp.Info = fmt.Sprintf(srcResp.Info, message)
 	}
+	return
 }
 
 func (resp *Response) IsSuccess() (result bool) {

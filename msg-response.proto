@@ -10,6 +10,10 @@ message Response {
     string info = 2;
 }
 
+message BaseResponse {
+    Response resp = 1;
+}
+
 message BoolResponse {
     Response resp = 1;
     bool result = 2;

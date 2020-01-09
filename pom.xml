@@ -41,7 +41,7 @@
                     <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.11.0:exe:${os.detected.classifier}</pluginArtifact>
                     <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
                     <additionalProtoPathElements>
-                        <additionalProtoPathElement>/Users/adam/workspace/gohome/gopath/src</additionalProtoPathElement>
+                        <additionalProtoPathElement>${GOPATH}/src</additionalProtoPathElement>
                     </additionalProtoPathElements>
                     <clearOutputDirectory>false</clearOutputDirectory>
                 </configuration>
